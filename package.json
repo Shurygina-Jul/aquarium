@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "packageManager": "yarn@1.22.22",
   "scripts": {
-    "start": "npm run dev",
-    "build": "npm run lint && tsc && vite build",
+    "start": "yarn dev",
+    "build": "yarn lint && tsc && vite build",
     "lint": "eslint .",
-    "dev": "vite"
+    "dev": "vite",
+    "preview": "vite preview"
   },
   "dependencies": {
     "pixi.js": "^8.8.1"

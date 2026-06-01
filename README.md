@@ -5,17 +5,36 @@ Aквариум на [PixiJS](https://pixijs.com/) — вид сбоку: фон
 ## Запуск
 
 ```bash
-npm install
-npm run dev
+yarn install
+yarn dev
 ```
 
 Сборка для продакшена (линт, TypeScript, Vite):
 
 ```bash
-npm run build
+yarn build
 ```
 
-Артефакты попадают в `dist/`. Локальный превью после сборки: `npx vite preview`.
+Артефакты попадают в `dist/`. Проверка прод-сборки (с `base: /aquarium/`):
+
+```bash
+yarn build
+yarn preview
+```
+
+Зависимости фиксируются в `yarn.lock` — в CI используется `yarn install --frozen-lockfile`.
+
+Откройте URL из терминала (обычно с путём `/aquarium/`).
+
+## Деплой на GitHub Pages
+
+После пуша в `main` срабатывает [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+
+1. **Settings** → **Pages** → Source: **GitHub Actions**
+2. Дождаться зелёного workflow в **Actions**
+3. Сайт: **https://shurygina-jul.github.io/aquarium/**
+
+`vite.config.ts`: `base: "/aquarium/"` (имя репозитория). Пути к ассетам — через `import.meta.env.BASE_URL` в `src/assets.ts`.
 
 ## Что на сцене
 
@@ -73,4 +92,5 @@ src/
 - PixiJS 8
 - TypeScript
 - Vite 6
+- Yarn 1
 - ESLint + Prettier
