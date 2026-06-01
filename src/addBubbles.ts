@@ -15,7 +15,7 @@ import {
   bubbleStrokeColor,
   bubbleStrokeWidth,
   bubbleWrapMargin,
-} from "./config/bubbles";
+} from "@/config/bubbles";
 
 /** Один пузырёк: графика и скорость по осям */
 type Bubble = {

@@ -1,5 +1,5 @@
 import { Application, Sprite } from "pixi.js";
-import { scaleToCover } from "./utils/scaleToCover";
+import { scaleToCover } from "@/utils/scaleToCover";
 
 export function addBackground(app: Application) {
   const background = Sprite.from("background");

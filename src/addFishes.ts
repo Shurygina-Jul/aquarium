@@ -12,8 +12,8 @@ import {
   fishWobbleSpeedMin,
   fishWobbleSpeedRange,
   verticalPadding,
-} from "./config/fish";
-import type { FishSprite } from "./types/fish";
+} from "@/config/fish";
+import type { FishSprite } from "@/types/fish";
 
 /** Создаёт рыб на сцене и добавляет их в переданный массив */
 export function addFishes(app: Application, fishes: FishSprite[]) {

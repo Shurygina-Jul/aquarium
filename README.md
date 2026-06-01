@@ -28,6 +28,15 @@ npm run build
 
 Точка входа — `src/main.ts`: инициализация приложения, загрузка ассетов, один `ticker` для всей анимации.
 
+## Импорты
+
+В `tsconfig.json` и `vite.config.ts` настроен алиас `@` → `src/`:
+
+```ts
+import { fishCount } from "@/config/fish";
+import type { FishSprite } from "@/types/fish";
+```
+
 ## Структура `src/`
 
 ```

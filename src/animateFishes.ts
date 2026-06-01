@@ -1,6 +1,6 @@
 import { Application, Ticker } from "pixi.js";
-import { fishTurnChance, stagePadding } from "./config/fish";
-import type { FishSprite } from "./types/fish";
+import { fishTurnChance, stagePadding } from "@/config/fish";
+import type { FishSprite } from "@/types/fish";
 
 /** Обновляет позицию и вид каждой рыбы каждый кадр */
 export function animateFishes(
