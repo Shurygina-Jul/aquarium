@@ -1,12 +1,5 @@
 import { Container, Text } from "pixi.js";
-
-const scoreStyle = {
-  fontFamily: "Arial, sans-serif",
-  fontSize: 24,
-  fontWeight: "700" as const,
-  fill: 0xffffff,
-  stroke: { color: 0x003344, width: 4 },
-};
+import { scoreTextStyle } from "@/styles/pixiText";
 
 /** Счётчик очков на экране игры */
 export function createScoreLabel(initialScore = 0): Container & {
@@ -18,7 +11,7 @@ export function createScoreLabel(initialScore = 0): Container & {
 
   const caption = new Text({
     text: formatScore(initialScore),
-    style: scoreStyle,
+    style: scoreTextStyle,
   });
   caption.anchor.set(0.5, 0);
 

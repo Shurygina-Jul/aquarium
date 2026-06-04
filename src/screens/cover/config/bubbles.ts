@@ -19,12 +19,10 @@ export const bubbleRiseSpeedRange = 0.35;
 /** Запас за краем экрана при «переспавне» снизу/сверху */
 export const bubbleWrapMargin = 20;
 
-/** Заливка шара: белый, почти прозрачный */
-export const bubbleFillColor = 0xffffff;
+/** Заливка шара */
 export const bubbleFillAlpha = 0.1;
 
 /** Контур шара */
-export const bubbleStrokeColor = 0x6a9aad;
 export const bubbleStrokeWidth = 1.2;
 export const bubbleStrokeAlpha = 0.45;
 

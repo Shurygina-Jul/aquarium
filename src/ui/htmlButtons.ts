@@ -1,9 +1,11 @@
+/** Управление HTML-кнопкой на время жизни сцены */
 export type HtmlButtonHandle = {
   show: () => void;
   hide: () => void;
   destroy: () => void;
 };
 
+/** Контейнер UI поверх Pixi-canvas */
 function getUiLayer(): HTMLDivElement {
   const layer = document.querySelector("#ui-layer");
 

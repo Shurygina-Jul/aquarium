@@ -19,7 +19,20 @@
   --diamond-bright: #eefcff;
   --pearl: #faf8ff;
 
+  /* ячейки match-3 (значения в config.ts для Pixi) */
+  --board-cell-deep: #0a4a68;
+  --board-cell-mid: #1a7a9e;
+
   /* кнопки */
   --btn-font: Arial, sans-serif;
   --btn-transition: 0.15s ease;
+
+  /* текст (Pixi: src/styles/pixiText.ts) */
+  --text-fill: var(--pearl);
+  --text-stroke: #003344;
+  --text-font: var(--btn-font);
+
+  /* пузырьки (Pixi: src/styles/pixiBubbles.ts) */
+  --bubble-fill: #ffffff;
+  --bubble-stroke: #6a9aad;
 }

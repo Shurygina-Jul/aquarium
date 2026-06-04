@@ -3,7 +3,6 @@ import {
   bubbleCount,
   bubbleDriftMax,
   bubbleFillAlpha,
-  bubbleFillColor,
   bubbleHighlightAlpha,
   bubbleHighlightOffsetFactor,
   bubbleHighlightRadiusFactor,
@@ -12,10 +11,10 @@ import {
   bubbleRiseSpeedMin,
   bubbleRiseSpeedRange,
   bubbleStrokeAlpha,
-  bubbleStrokeColor,
   bubbleStrokeWidth,
   bubbleWrapMargin,
 } from "@/screens/cover/config/bubbles";
+import { bubbleFillColor, bubbleStrokeColor } from "@/styles/pixiBubbles";
 
 /** Один пузырёк: графика и скорость по осям */
 type Bubble = {

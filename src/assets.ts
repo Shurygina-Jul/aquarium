@@ -11,6 +11,11 @@ export const ASSETS = [
   { alias: "green_fish", src: publicAsset("green_fish.png") },
   { alias: "purple_fish", src: publicAsset("purple_fish.png") },
   { alias: "overlay", src: publicAsset("aquarium_overlay.png") },
+  { alias: "box", src: publicAsset("box.png") },
+  { alias: "corall", src: publicAsset("corall.png") },
+  { alias: "diamond", src: publicAsset("diamond.png") },
+  { alias: "shell", src: publicAsset("shell.png") },
+  { alias: "ship", src: publicAsset("ship.png") },
 ] as const;
 
 export async function preloadAssets() {

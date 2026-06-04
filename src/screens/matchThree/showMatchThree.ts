@@ -12,19 +12,18 @@ type MatchThreeSceneOptions = {
   onBack: () => void;
 };
 
-/** Экран match-3: фон, сетка, счётчик очков, кнопка «Назад» */
+/** Экран match-3: поле с плитками (заглушка), счёт, «Назад» в HTML */
 export function showMatchThree(
   app: Application,
   { onBack }: MatchThreeSceneOptions,
 ): Scene {
   const root = new Container();
   const { width, height } = app.screen;
-  const backButton = createBackButton(onBack);
 
   addBackground(app, root);
   const water = addWaterOverlay(app, root);
 
-  const board = addMatchThreeBoard();
+  const board = addMatchThreeBoard(width, height);
   board.position.set(width / 2, height / 2);
   root.addChild(board);
 
@@ -33,6 +32,8 @@ export function showMatchThree(
   root.addChild(score);
 
   app.stage.addChild(root);
+
+  const backButton = createBackButton(onBack);
   backButton.show();
 
   return {

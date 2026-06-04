@@ -48,6 +48,8 @@ yarn dev
 | `shared/` | Фон и каустика для нескольких экранов |
 | `ui/htmlButtons.ts` | HTML-кнопки поверх canvas |
 | `styles/tokens.css` | Цвета проекта (CSS-переменные) |
+| `styles/pixiText.ts` | Текст на canvas (значения из `--text-*` в tokens.css) |
+| `styles/pixiBubbles.ts` | Пузырьки на обложке (`--bubble-*` в tokens.css) |
 | `styles/buttons/` | Стили `game-btn--primary` / `--secondary` |
 | `types/scene.ts` | Контракт экрана (`tick`, `destroy`) |
 
