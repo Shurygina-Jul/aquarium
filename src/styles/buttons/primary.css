@@ -1,0 +1,106 @@
+/* «Играть» — золото, жемчуг, алмазы по углам */
+
+#ui-layer .game-btn--primary {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 18px 52px;
+  font-size: 1.5rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  color: var(--gold-text);
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7),
+    0 1px 3px rgba(160, 120, 20, 0.35);
+  background: linear-gradient(
+    165deg,
+    #fffce8 0%,
+    var(--gold-mid) 42%,
+    var(--gold-rich) 72%,
+    var(--gold-deep) 100%
+  );
+  box-shadow:
+    0 0 0 2px #fff6c8,
+    0 0 0 4px rgba(140, 210, 255, 0.45),
+    0 10px 28px rgba(0, 20, 40, 0.4),
+    inset 0 2px 6px rgba(255, 255, 255, 0.6),
+    inset 0 -4px 8px rgba(180, 140, 30, 0.28);
+  animation: btn-treasure-pulse 5s ease-in-out infinite;
+}
+
+#ui-layer .game-btn--primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse 90% 55% at 50% 8%,
+    rgba(255, 255, 255, 0.75) 0%,
+    rgba(255, 255, 255, 0.15) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+#ui-layer .game-btn--primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      circle at 10% 22%,
+      var(--diamond-bright) 0 4px,
+      transparent 5px
+    ),
+    radial-gradient(
+      circle at 90% 22%,
+      var(--diamond-bright) 0 4px,
+      transparent 5px
+    ),
+    radial-gradient(circle at 8% 78%, var(--pearl) 0 3px, transparent 4px),
+    radial-gradient(circle at 92% 78%, var(--pearl) 0 3px, transparent 4px);
+  opacity: 0.95;
+  pointer-events: none;
+}
+
+#ui-layer .game-btn--primary:hover {
+  transform: translate(-50%, -50%) scale(1.06);
+  filter: brightness(1.08);
+  box-shadow:
+    0 0 0 2px #ffffff,
+    0 0 0 5px rgba(160, 230, 255, 0.65),
+    0 0 32px rgba(200, 240, 255, 0.5),
+    0 12px 32px rgba(0, 20, 40, 0.5),
+    inset 0 2px 8px rgba(255, 255, 255, 0.65),
+    inset 0 -4px 8px rgba(180, 140, 30, 0.28);
+}
+
+#ui-layer .game-btn--primary:active {
+  transform: translate(-50%, -50%) scale(0.97);
+  filter: brightness(0.96);
+}
+
+@keyframes btn-treasure-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 2px var(--gold-light),
+      0 0 0 4px rgba(140, 210, 255, 0.4),
+      0 10px 26px rgba(0, 20, 40, 0.4),
+      inset 0 2px 6px rgba(255, 255, 255, 0.5),
+      inset 0 -4px 8px rgba(180, 140, 30, 0.28);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 2px #ffffff,
+      0 0 0 5px rgba(180, 240, 255, 0.7),
+      0 0 28px rgba(255, 230, 140, 0.45),
+      0 12px 30px rgba(0, 20, 40, 0.45),
+      inset 0 2px 8px rgba(255, 255, 255, 0.65),
+      inset 0 -4px 8px rgba(180, 140, 30, 0.28);
+  }
+}

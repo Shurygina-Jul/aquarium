@@ -11,16 +11,25 @@ import {
   fishWobbleAmplitudeRange,
   fishWobbleSpeedMin,
   fishWobbleSpeedRange,
+  fishScreenReference,
   verticalPadding,
-} from "@/config/fish";
-import type { FishSprite } from "@/types/fish";
+} from "@/screens/cover/config/fish";
+import type { FishSprite } from "@/screens/cover/types/fish";
 
 /** Создаёт рыб на сцене и добавляет их в переданный массив */
-export function addFishes(app: Application, fishes: FishSprite[]) {
+export function addFishes(
+  app: Application,
+  fishes: FishSprite[],
+  parent: Container,
+) {
   const fishContainer = new Container();
-  app.stage.addChild(fishContainer);
+  parent.addChild(fishContainer);
 
   const swimZoneHeight = app.screen.height - verticalPadding * 2;
+  const sizeFactor = Math.min(
+    1,
+    Math.min(app.screen.width, app.screen.height) / fishScreenReference,
+  );
 
   for (let i = 0; i < fishCount; i++) {
     const fishAsset = fishAssets[i % fishAssets.length];
@@ -41,7 +50,7 @@ export function addFishes(app: Application, fishes: FishSprite[]) {
     fish.velocityX =
       direction * (fishSpeedMin + Math.random() * fishSpeedRange);
 
-    const scale = fishScaleMin + Math.random() * fishScaleRange;
+    const scale = (fishScaleMin + Math.random() * fishScaleRange) * sizeFactor;
     fish.baseScale = scale;
     fish.faceFlip = fishFacing[fishAsset];
     fish.scale.set(scale * direction * fish.faceFlip, scale);

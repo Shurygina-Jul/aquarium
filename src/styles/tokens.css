@@ -1,0 +1,25 @@
+/**
+ * Цвета и тени проекта — менять здесь, подхватятся кнопки и UI.
+ */
+:root {
+  /* золото */
+  --gold-light: #fff9dc;
+  --gold-mid: #f0d050;
+  --gold-rich: #e4b82a;
+  --gold-deep: #d4a017;
+  --gold-text: #6a5508;
+
+  /* вода */
+  --water-light: #3ab8d8;
+  --water-mid: #1a8fb8;
+  --water-deep: #0d5f82;
+
+  /* сокровища */
+  --diamond: #c8f4ff;
+  --diamond-bright: #eefcff;
+  --pearl: #faf8ff;
+
+  /* кнопки */
+  --btn-font: Arial, sans-serif;
+  --btn-transition: 0.15s ease;
+}

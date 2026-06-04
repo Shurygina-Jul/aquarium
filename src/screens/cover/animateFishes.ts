@@ -1,6 +1,6 @@
 import { Application, Ticker } from "pixi.js";
-import { fishTurnChance, stagePadding } from "@/config/fish";
-import type { FishSprite } from "@/types/fish";
+import { fishTurnChance, stagePadding } from "@/screens/cover/config/fish";
+import type { FishSprite } from "@/screens/cover/types/fish";
 
 /** Обновляет позицию и вид каждой рыбы каждый кадр */
 export function animateFishes(
@@ -14,7 +14,6 @@ export function animateFishes(
   fishes.forEach((fish) => {
     fish.x += fish.velocityX * delta;
 
-    // У каждой рыбы свои амплитуда, скорость и фаза волны
     const wave = ticker.lastTime * fish.wobbleSpeed + fish.wobblePhase;
     fish.y = fish.baseY + Math.sin(wave) * fish.wobbleAmplitude;
 

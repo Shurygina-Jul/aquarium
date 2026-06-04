@@ -1,0 +1,73 @@
+/* «Назад» — вода + золотая кайма */
+
+#ui-layer .game-btn--secondary {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  border-radius: 14px;
+  color: var(--gold-light);
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35),
+    0 1px 4px rgba(0, 40, 60, 0.5);
+  background: linear-gradient(
+    155deg,
+    var(--water-light) 0%,
+    var(--water-mid) 45%,
+    var(--water-deep) 100%
+  );
+  box-shadow:
+    0 0 0 2px var(--gold-mid),
+    0 0 0 3px rgba(200, 240, 255, 0.3),
+    0 6px 18px rgba(0, 30, 50, 0.45),
+    inset 0 2px 5px rgba(120, 220, 255, 0.35),
+    inset 0 -3px 6px rgba(0, 50, 80, 0.4);
+}
+
+#ui-layer .game-btn--secondary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 0%,
+    rgba(200, 245, 255, 0.4) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+#ui-layer .game-btn--secondary::after {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translateY(-50%) rotate(45deg);
+  background: linear-gradient(
+    135deg,
+    var(--diamond-bright) 0%,
+    var(--diamond) 50%,
+    #88c8e8 100%
+  );
+  box-shadow: 0 0 6px rgba(180, 235, 255, 0.9);
+  pointer-events: none;
+}
+
+#ui-layer .game-btn--secondary:hover {
+  transform: scale(1.04);
+  filter: brightness(1.08);
+  box-shadow:
+    0 0 0 2px var(--gold-light),
+    0 0 0 4px rgba(180, 230, 255, 0.5),
+    0 0 18px rgba(255, 220, 120, 0.35),
+    0 8px 22px rgba(0, 30, 50, 0.45),
+    inset 0 2px 6px rgba(140, 230, 255, 0.45),
+    inset 0 -3px 6px rgba(0, 50, 80, 0.4);
+}
+
+#ui-layer .game-btn--secondary:active {
+  transform: scale(0.98);
+}

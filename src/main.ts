@@ -1,11 +1,9 @@
-import { addBackground } from "@/addBackground";
-import { addBubbles, animateBubbles } from "@/addBubbles";
-import { addFishes } from "@/addFishes";
-import { addWaterOverlay, animateWaterOverlay } from "@/addOverlay";
-import { animateFishes } from "@/animateFishes";
+import "@/styles/index.css";
 import { preloadAssets } from "@/assets";
+import { createSceneManager } from "@/sceneManager";
+import { showCover } from "@/screens/cover/showCover";
+import { showMatchThree } from "@/screens/matchThree/showMatchThree";
 import { getPixiContainer, initApp } from "@/setupApp";
-import type { FishSprite } from "@/types/fish";
 
 (async () => {
   const container = getPixiContainer();
@@ -13,16 +11,17 @@ import type { FishSprite } from "@/types/fish";
 
   await preloadAssets();
 
-  addBackground(app);
-  addWaterOverlay(app);
+  const scenes = createSceneManager(app);
 
-  const fishes: FishSprite[] = [];
-  addFishes(app, fishes);
-  addBubbles(app);
+  const openCover = () => {
+    scenes.show(
+      showCover(app, {
+        onPlay: () => {
+          scenes.show(showMatchThree(app, { onBack: openCover }));
+        },
+      }),
+    );
+  };
 
-  app.ticker.add((ticker) => {
-    animateBubbles(app, ticker);
-    animateFishes(app, fishes, ticker);
-    animateWaterOverlay(ticker);
-  });
+  openCover();
 })();

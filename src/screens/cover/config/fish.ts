@@ -20,6 +20,9 @@ export const verticalPadding = 80;
 /** Запас за левым/правым краем при «телепорте» на другую сторону */
 export const stagePadding = 100;
 
+/** Эталон меньшей стороны экрана: на узком (iPhone) рыбы уменьшаются */
+export const fishScreenReference = 900;
+
 /** Минимальный масштаб рыбы (базовый размер спрайта) */
 export const fishScaleMin = 0.12;
 

@@ -15,7 +15,7 @@ import {
   bubbleStrokeColor,
   bubbleStrokeWidth,
   bubbleWrapMargin,
-} from "@/config/bubbles";
+} from "@/screens/cover/config/bubbles";
 
 /** Один пузырёк: графика и скорость по осям */
 type Bubble = {
@@ -50,7 +50,7 @@ function createBubble(radius: number) {
 }
 
 /** Создаёт слой пузырьков и расставляет их по экрану */
-export function addBubbles(app: Application) {
+export function addBubbles(app: Application, parent: Container) {
   const { width, height } = app.screen;
 
   bubbleContainer = new Container();
@@ -71,11 +71,12 @@ export function addBubbles(app: Application) {
     });
   }
 
-  app.stage.addChild(bubbleContainer);
+  parent.addChild(bubbleContainer);
 }
 
 /** Двигает пузырьки вверх и слегка в стороны; за краем — с другой стороны */
 export function animateBubbles(app: Application, ticker: Ticker) {
+  if (bubbles.length === 0) return;
   const { width, height } = app.screen;
   const delta = ticker.deltaTime;
 
@@ -83,10 +84,8 @@ export function animateBubbles(app: Application, ticker: Ticker) {
     dot.x += vx * delta;
     dot.y += vy * delta;
 
-    // Горизонтальный wrap
     if (dot.x < 0) dot.x = width;
     if (dot.x > width) dot.x = 0;
-    // Ушёл вверх — снова снизу (основной цикл всплытия)
     if (dot.y < -bubbleWrapMargin) dot.y = height + bubbleWrapMargin;
     if (dot.y > height + bubbleWrapMargin) dot.y = -bubbleWrapMargin;
   }
