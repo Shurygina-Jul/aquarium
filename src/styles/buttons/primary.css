@@ -44,28 +44,6 @@
   pointer-events: none;
 }
 
-#ui-layer .game-btn--primary::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background:
-    radial-gradient(
-      circle at 10% 22%,
-      var(--diamond-bright) 0 4px,
-      transparent 5px
-    ),
-    radial-gradient(
-      circle at 90% 22%,
-      var(--diamond-bright) 0 4px,
-      transparent 5px
-    ),
-    radial-gradient(circle at 8% 78%, var(--pearl) 0 3px, transparent 4px),
-    radial-gradient(circle at 92% 78%, var(--pearl) 0 3px, transparent 4px);
-  opacity: 0.95;
-  pointer-events: none;
-}
-
 #ui-layer .game-btn--primary:hover {
   transform: translate(-50%, -50%) scale(1.06);
   filter: brightness(1.08);
