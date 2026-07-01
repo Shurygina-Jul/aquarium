@@ -1,11 +1,17 @@
 import { Container, Text } from "pixi.js";
+import { tween } from "@/screens/matchThree/boardAnimations";
 import { scoreTextStyle } from "@/styles/pixiText";
+
+const scorePopDurationMs = 220;
+const scorePopScale = 0.18;
 
 /** Счётчик очков на экране игры */
 export function createScoreLabel(initialScore = 0): Container & {
+  addScore: (delta: number) => void;
   setScore: (value: number) => void;
 } {
   const root = new Container() as Container & {
+    addScore: (delta: number) => void;
     setScore: (value: number) => void;
   };
 
@@ -17,8 +23,31 @@ export function createScoreLabel(initialScore = 0): Container & {
 
   root.addChild(caption);
 
+  let currentScore = initialScore;
+
+  const popScore = () => {
+    void tween(scorePopDurationMs, (progress) => {
+      const scale = 1 + Math.sin(progress * Math.PI) * scorePopScale;
+      caption.scale.set(scale);
+    }).then(() => {
+      caption.scale.set(1);
+    });
+  };
+
+  root.addScore = (delta: number) => {
+    if (delta <= 0) {
+      return;
+    }
+
+    currentScore += delta;
+    caption.text = formatScore(currentScore);
+    popScore();
+  };
+
   root.setScore = (value: number) => {
+    currentScore = value;
     caption.text = formatScore(value);
+    caption.scale.set(1);
   };
 
   return root;

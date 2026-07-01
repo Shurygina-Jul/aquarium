@@ -12,7 +12,7 @@ type MatchThreeSceneOptions = {
   onBack: () => void;
 };
 
-/** Экран match-3: поле с плитками (заглушка), счёт, «Назад» в HTML */
+/** Экран match-3: поле, клики по соседним ячейкам, счёт, «Назад» в HTML */
 export function showMatchThree(
   app: Application,
   { onBack }: MatchThreeSceneOptions,
@@ -23,13 +23,15 @@ export function showMatchThree(
   addBackground(app, root);
   const water = addWaterOverlay(app, root);
 
-  const board = addMatchThreeBoard(width, height);
-  board.position.set(width / 2, height / 2);
-  root.addChild(board);
-
   const score = createScoreLabel(0);
   score.position.set(width / 2, 24);
   root.addChild(score);
+
+  const board = addMatchThreeBoard(width, height, (delta) => {
+    score.addScore(delta);
+  });
+  board.container.position.set(width / 2, height / 2);
+  root.addChild(board.container);
 
   app.stage.addChild(root);
 
@@ -39,10 +41,12 @@ export function showMatchThree(
   return {
     tick(ticker) {
       water.tick(ticker);
+      board.tick(ticker);
     },
 
     destroy() {
       backButton.destroy();
+      board.destroy();
       root.destroy(sceneDestroyOptions);
       if (root.parent === app.stage) {
         app.stage.removeChild(root);
